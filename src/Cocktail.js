@@ -1,4 +1,7 @@
+import React from 'react'
+import react,{useState,useEffect} from 'react'
 const URL="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+
 const cocktail1=()=>{
 const[userData,setuserData]=useState([])
 const[searching,setsearching]=useState("")
@@ -38,6 +41,7 @@ useEffect(()=>{
 
 },[searchTerm])
 
+
 return(
 
 <>
@@ -66,13 +70,17 @@ userData.map((eachDrink)=>{
     <div className='image'>  <img src={strDrinkThumb} alt="" /></div>
     <div className='brandname'>{strDrink}</div>
     </li>
+
 })
 }
+
 </ul>
 
 
 </div>
 </>
+)
+}
 
 
 export default cocktail1;

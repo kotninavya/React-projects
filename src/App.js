@@ -1,42 +1,161 @@
-import React from 'react';
-import { useState ,useMemo} from 'react';
-import './App.css';
 
-const App=()=>{
+import { Route,Routes } from 'react-router-dom';
+import Home from "./Home";
+import Contact from "./Contact";
+import Service from "./Service";
+import Navbar from "./Navbar";
+import About from "./About";
+import PageNotFound from './PageNotFound';
+import Success from './Success';
+import Restuarents from "./Restuarents";
+// import NewRestuarents from './NewRestuarents';
+import ExistingRestuarents from "./existingRestuarents";
+import Products from './Products';
 
-  const[count,setCount]=useState(0)
-  const[number,setNumber]=useState(5)
-  const factorial=React.useMemo(()=>factorial(number),[number])
-  const handleChange=()=>{
-  setCount(count+1)
+import Productsview from './Productsview';
+import ProductsData from './ProductsData';
 
-  }
-return(
-  
-  <>
-  {factorial}
-  <button onClick={handleChange}>share</button>
-  {count}
-  
-  </>
 
-)
 
+function App(){
+  return(
+    <div className='container'>
+      <Navbar/>
+
+      <Routes>
+
+        <Route path='/' element={<Home/>}>Home</Route>
+        <Route path='/Contact' element={<Contact/>}>Contact</Route>
+        <Route path='/Service' element={<Service/>}>Service</Route>
+        <Route path='/About' element={<About/>}>About</Route>
+        <Route path='/Success' element={<Success/>}></Route>
+        <Route path='/Restuarents' element={<Restuarents/>}>
+          <Route index element={<ExistingRestuarents/>}/>
+           <Route path='existingRestuarents' element={<existingRestuarents/>}/>
+           <Route path='newRestuarents' element={<newRestuarents/>}/>
+        </Route>
+        <Route path='/Products' element={<Products/>}/>
+           <Route path='/Products/:id' element={<Productsview/>}/>
+        
+
+     </Routes>
+
+</div>
+
+
+  )
 }
+export default App;
 
-const fact=(n)=>{
 
-  let answer=1;
-  for(var i=n;i>=1;i--){
-   answer=answer*i
 
-  }
+// const App = () => {
 
-  console.log("FACTORIAL CALLED")
-  return answer
+//   const[count,setCount]=useState[0]
+//   const increment=()=>{
+//     setCount(count+1)
 
-}
-export default App
+//     console.log(count)
+//   }
+//   return (
+    
+//     <div>
+//     <center>
+//       {count}<br></br>
+
+//     <button onClick={increment} >UPDATE</button>
+//     </center>
+    
+    
+    
+    
+    
+//     </div>
+//   )
+// }
+
+// export default App
+
+//useCallback//
+// import { useState ,useCallback} from 'react';
+// import Count from './count'
+// import Button from './Button'
+
+
+// function App(){
+ 
+//   const[age,setAge]=useState(0)
+//   const[salary,setSalary]=useState(7000)
+
+//   const increamentAge=useCallback(()=>{
+   
+//     setAge(age+1)
+
+//     },[age])
+    
+//    const increamentsalary=useCallback(()=>{
+//      setSalary(salary+1000)
+//     },[salary])
+
+
+//     return(
+
+//       <div className='container'>
+//         <center>
+//        <Count text={"age"} number={age} />
+//        <Button clickHandler={increamentAge}>increamentAge</Button>
+//        <Count text={"salary"} number={salary} />
+//        </center>
+      
+
+//        </div>
+
+
+// )
+
+
+// }
+
+// export default App;
+
+
+
+//factorial//
+// const App=()=>{
+
+//   const[count,setCount]=useState(0)
+//   const[number,setNumber]=useState(5)
+//   const factorial=React.useMemo(()=>fact(number),[number])
+//   const handleChange=()=>{
+//   setCount(count+1)
+
+//   }
+// return(
+  
+//   <>
+//   {factorial}
+//   <button onClick={handleChange}>share</button>
+//   {count}
+  
+//   </>
+
+// )
+
+// }
+
+// const fact=(n)=>{
+
+//   let answer=1;
+//   for(var i=n;i>=1;i--){
+//    answer=answer*i
+
+//   }
+
+//   console.log("FACTORIAL CALLED")
+//   return answer
+
+// }
+// export default App
 
 
 
