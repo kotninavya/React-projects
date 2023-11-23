@@ -14,6 +14,7 @@ import Products from './Products';
 
 import Productsview from './Productsview';
 import ProductsData from './ProductsData';
+import NewForms from './NewForms';
 
 
 
@@ -25,6 +26,8 @@ function App(){
       <Routes>
 
         <Route path='/' element={<Home/>}>Home</Route>
+        <Route path='/NewForms' element={<NewForms/>}>NewForms</Route>
+
         <Route path='/Contact' element={<Contact/>}>Contact</Route>
         <Route path='/Service' element={<Service/>}>Service</Route>
         <Route path='/About' element={<About/>}>About</Route>
@@ -33,6 +36,7 @@ function App(){
           <Route index element={<ExistingRestuarents/>}/>
            <Route path='existingRestuarents' element={<existingRestuarents/>}/>
            <Route path='newRestuarents' element={<newRestuarents/>}/>
+           
         </Route>
         <Route path='/Products' element={<Products/>}/>
            <Route path='/Products/:id' element={<Productsview/>}/>
